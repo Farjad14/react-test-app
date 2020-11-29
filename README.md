@@ -1,1 +1,5 @@
-# react-test-app
+## Installation
+
+- npm install
+- npm start
+- visit `http://localhost:3000`
