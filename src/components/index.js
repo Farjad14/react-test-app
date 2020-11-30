@@ -26,7 +26,6 @@ const Wrapper = styled.div`
   font-size: 14px;
 `;
 
-
 export const TableTitleWrapper = () => (
   <TableTitle>
     <FormattedMessage {...messages.formTitle} />
@@ -37,31 +36,31 @@ export const TableComponent = () => {
   const [items, setItems] = React.useState({
     col1: [
       { uid: "uuidv4", text: "Farjad" },
-      { uid: "uuidv224", text: "Anna" }
+      { uid: "uuidv224", text: "Anna" },
     ],
-    col2: [{ uid: "uuidv4", text: "H8tch" }]
+    col2: [{ uid: "uuidv4", text: "H8tch" }],
   });
 
   const addItem = (text, col, uid) => {
     const newItems = {
       ...items,
-      [col]: [...items[col], { text, uid, col }]
+      [col]: [...items[col], { text, uid, col }],
     };
     setItems(newItems);
   };
 
   const removeItem = (item, col) => {
     const values = items[col];
-    const index = values.findIndex(i => i.uid === item.uid);
+    const index = values.findIndex((i) => i.uid === item.uid);
     values.splice(index, 1);
     const itemIndex = {
       ...items,
-      [col]: values
+      [col]: values,
     };
     setItems(itemIndex);
   };
   const [searchTerm, setSearchTerm] = React.useState("");
-  const handleSearchChange = event => {
+  const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
@@ -83,7 +82,3 @@ export const TableComponent = () => {
     </Wrapper>
   );
 };
-
-
-
-
