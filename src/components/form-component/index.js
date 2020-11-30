@@ -1,5 +1,5 @@
 import { FormattedMessage, injectIntl } from "react-intl";
-import React from "react";
+import React, { useState } from "react";
 import { SearchComponent } from "../search-component";
 import messages from "../messages";
 import { v4 as uid } from "uuid";
@@ -12,8 +12,8 @@ import {
 
 export const FormComponent = injectIntl(
   ({ addItem, intl, searchTerm, handleChange }) => {
-    const [value, setValue] = React.useState("");
-    const [column, setColumn] = React.useState("");
+    const [value, setValue] = useState("");
+    const [column, setColumn] = useState("");
 
     const handleSubmit = (e) => {
       e.preventDefault();

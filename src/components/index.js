@@ -1,30 +1,10 @@
-import styled from "@emotion/styled";
 import { FormattedMessage } from "react-intl";
-import React from "react";
+import React, { useState } from "react";
 import messages from "./messages";
 import { FormComponent } from "./form-component";
 import { ColumnComponent } from "./column-component";
-
-const TableTitle = styled.div`
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(white, #95a2b3, #818fa2);
-  color: white;
-  padding: 10px;
-  margin: 10px 0 10px 0;
-`;
-
-const SecondaryWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  @media (max-width: 800px) {
-    flex-wrap: wrap;
-  }
-`;
-
-const Wrapper = styled.div`
-  font-size: 14px;
-`;
+import { useLocalStorage } from "./utils";
+import { TableTitle, Wrapper, SecondaryWrapper } from "./styles";
 
 export const TableTitleWrapper = () => (
   <TableTitle>
@@ -33,13 +13,15 @@ export const TableTitleWrapper = () => (
 );
 
 export const TableComponent = () => {
-  const [items, setItems] = React.useState({
+  const dummyContent = {
     col1: [
       { uid: "uuidv4", text: "Farjad" },
       { uid: "uuidv224", text: "Anna" },
     ],
     col2: [{ uid: "uuidv4", text: "H8tch" }],
-  });
+  };
+
+  const [items, setItems] = useLocalStorage("item", dummyContent);
 
   const addItem = (text, col, uid) => {
     const newItems = {
@@ -59,7 +41,7 @@ export const TableComponent = () => {
     };
     setItems(itemIndex);
   };
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
