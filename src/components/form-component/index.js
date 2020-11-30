@@ -8,7 +8,7 @@ import {FormSection, ChooseColumnInput, EnterItemInput, AddItemBtn } from "./sty
 
 
 export const FormComponent = injectIntl(
-    ({ addTodo, intl, searchTerm, handleChange }) => {
+    ({ addItem, intl, searchTerm, handleChange }) => {
       const [value, setValue] = React.useState("");
       const [column, setColumn] = React.useState("");
   
@@ -17,7 +17,7 @@ export const FormComponent = injectIntl(
         if (!value) return;
         if (!column) return;
         const uuid = uid();
-        addTodo(value, column, uuid);
+        addItem(value, column, uuid);
         setValue("");
         setColumn("");
       };

@@ -34,7 +34,7 @@ export const TableTitleWrapper = () => (
 );
 
 export const TableComponent = () => {
-  const [todos, setTodos] = React.useState({
+  const [items, setItems] = React.useState({
     col1: [
       { uid: "uuidv4", text: "Farjad" },
       { uid: "uuidv224", text: "Anna" }
@@ -42,23 +42,23 @@ export const TableComponent = () => {
     col2: [{ uid: "uuidv4", text: "H8tch" }]
   });
 
-  const addTodo = (text, col, uid) => {
-    const newTodos = {
-      ...todos,
-      [col]: [...todos[col], { text, uid, col }]
+  const addItem = (text, col, uid) => {
+    const newItems = {
+      ...items,
+      [col]: [...items[col], { text, uid, col }]
     };
-    setTodos(newTodos);
+    setItems(newItems);
   };
 
-  const removeTodo = (item, col) => {
-    const values = todos[col];
+  const removeItem = (item, col) => {
+    const values = items[col];
     const index = values.findIndex(i => i.uid === item.uid);
     values.splice(index, 1);
     const itemIndex = {
-      ...todos,
+      ...items,
       [col]: values
     };
-    setTodos(itemIndex);
+    setItems(itemIndex);
   };
   const [searchTerm, setSearchTerm] = React.useState("");
   const handleSearchChange = event => {
@@ -70,14 +70,14 @@ export const TableComponent = () => {
       <TableTitleWrapper />
       <SecondaryWrapper>
         <FormComponent
-          addTodo={addTodo}
+          addItem={addItem}
           searchTerm={searchTerm}
           handleChange={handleSearchChange}
         />
         <ColumnComponent
-          todos={todos}
+          items={items}
           searchTerm={searchTerm}
-          removeTodo={removeTodo}
+          removeItem={removeItem}
         />
       </SecondaryWrapper>
     </Wrapper>
