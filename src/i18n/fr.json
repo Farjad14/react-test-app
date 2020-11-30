@@ -1,0 +1,14 @@
+{
+    "main.title.text": "Marvelous!",
+    "main.description.text":
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since.",
+    "form.title.text": "ADD AN ITEM",
+    "form.enterItemInput.btn": "ENTER ITEM",
+    "form.chooseColumnButton.btn": "CHOOSE COLUMN",
+    "form.addItemBtn.btn": "ADD ITEM",
+    "form.searchItemTitle.text": "SEARCH AN ITEM",
+    "form.search.placeholder": "SEARCH",
+    "form.columnOneText.text": "COLUMN 1",
+    "form.columnTwoText.text": "COLUMN 2"
+}
+  
